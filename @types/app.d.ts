@@ -11,7 +11,7 @@ interface BoardItem {
   createdAt?: Date;
   workTime?: Date;
   endedAt?: Date;
-  priority?: "low" | "meduim" | "high";
+  priority?: "low" | "medium" | "high";
   files?: any;
   status?: "queue" | "development" | "done";
   subTask?: any;
