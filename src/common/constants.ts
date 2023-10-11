@@ -1,7 +1,7 @@
 export const projects: Board[] = [
   {
     id: 1,
-    title: "Queue",
+    title: "queue",
     items: [
       {
         id: 1,
@@ -19,7 +19,7 @@ export const projects: Board[] = [
   },
   {
     id: 2,
-    title: "Development",
+    title: "development",
     items: [
       {
         id: 4,
@@ -37,7 +37,7 @@ export const projects: Board[] = [
   },
   {
     id: 3,
-    title: "Done",
+    title: "done",
     items: [
       {
         id: 7,
