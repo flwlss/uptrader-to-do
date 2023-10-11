@@ -1,62 +1,9 @@
 import React, { useState } from "react";
+import CustomButton from "../components/CustomButton";
+import { projects } from "../common/constants";
 
 const Boards: React.FC = () => {
-  const [boards, setBoards] = useState([
-    {
-      id: 1,
-      title: "Queue",
-      items: [
-        {
-          id: 1,
-          title: "Сделать задачу",
-        },
-        {
-          id: 2,
-          title: "Сделать домашку",
-        },
-        {
-          id: 3,
-          title: "Сделать ремонт",
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "Development",
-      items: [
-        {
-          id: 4,
-          title: "Сходить на почту",
-        },
-        {
-          id: 5,
-          title: "Сходить в магазин",
-        },
-        {
-          id: 6,
-          title: "Сходить в кино",
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "Done",
-      items: [
-        {
-          id: 7,
-          title: "Приготовить",
-        },
-        {
-          id: 8,
-          title: "Прибраться",
-        },
-        {
-          id: 9,
-          title: "Поспать",
-        },
-      ],
-    },
-  ]);
+  const [boards, setBoards] = useState(projects);
 
   const [currentBoard, setCurrentBoard] = useState<Board | null>(null);
   const [currentItem, setCurrentItem] = useState<BoardItem | null>(null);
@@ -147,7 +94,7 @@ const Boards: React.FC = () => {
                   onDragLeave={(e) => {
                     dragLeaveHandler(e);
                   }}
-                  onDragStart={(e) => {
+                  onDragStart={() => {
                     dragStartHandler(board, item);
                   }}
                   onDragEnd={(e) => {
@@ -160,10 +107,15 @@ const Boards: React.FC = () => {
                   key={item.id}
                   className="board__item"
                 >
-                  <span>{item.title}</span>
+                  {item.title}
                 </div>
               );
             })}
+            <CustomButton
+              styles={{ marginTop: 15 }}
+              onClick={() => {}}
+              title="Create"
+            />
           </div>
         );
       })}

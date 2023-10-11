@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="projectsWrapper">
+    <>
       <div className="projects">
         {projects.map((item, index) => {
           return (
@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
         })}
       </div>
       <CustomButton onClick={() => {}} title="Create" />
-    </div>
+    </>
   );
 };
 
