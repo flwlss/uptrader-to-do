@@ -1,4 +1,4 @@
-export const projects = [
+export const projects: Board[] = [
   {
     id: 1,
     title: "Queue",
