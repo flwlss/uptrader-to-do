@@ -1,0 +1,20 @@
+.projectsWrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  &__item {
+    border: 2px solid rgb(155, 200, 255);
+    width: 350px;
+    height: 100px;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+}
