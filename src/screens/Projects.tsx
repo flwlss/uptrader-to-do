@@ -1,5 +1,5 @@
 import React from "react";
-import { projects } from "../common/constants";
+import { availableProjects } from "../common/constants";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../navigation/paths";
 import CustomButton from "../components/CustomButton";
@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
   return (
     <>
       <div className="projects">
-        {projects.map((item, index) => {
+        {availableProjects.map((item, index) => {
           return (
             <div
               onClick={() => {

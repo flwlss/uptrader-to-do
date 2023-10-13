@@ -1,10 +1,15 @@
 type Board = {
   id: number;
   title: string;
-  items: BoardItem[];
 };
 
-interface BoardItem {
+type Project = {
+  id: number;
+  title: string;
+  items?: ProjectItem[];
+};
+
+interface ProjectItem {
   id: number;
   title: string;
   description?: string;
