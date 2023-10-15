@@ -7,10 +7,16 @@ import CreateProject from "../modals/CreateProject";
 
 const Projects: React.FC = () => {
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
-      {showModal && <CreateProject />}
+      {showModal && (
+        <CreateProject
+          closeModal={() => {
+            setShowModal(false);
+          }}
+        />
+      )}
       <div className="projects">
         {availableProjects.map((item, index) => {
           return (
@@ -27,6 +33,7 @@ const Projects: React.FC = () => {
         })}
       </div>
       <CustomButton
+        style={{ width: 350 }}
         onClick={() => {
           setShowModal(true);
         }}

@@ -4,6 +4,7 @@ import CustomButton from "../components/CustomButton";
 interface Modal {
   children: JSX.Element;
   onSubmit: () => void;
+  closeModal: () => void;
 }
 
 const Modal: React.FC<Modal> = (props) => {
@@ -16,9 +17,9 @@ const Modal: React.FC<Modal> = (props) => {
           props.onSubmit();
         }}
       >
-        <div className="modal__close" />
+        <div className="modal__close" onClick={props.closeModal} />
         {props.children}
-        <CustomButton styles={{ width: 500, marginTop: 20 }} title="Создать" />
+        <CustomButton style={{ width: 500, marginTop: 20 }} title="Создать" />
       </form>
     </div>
   );

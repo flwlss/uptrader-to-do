@@ -11,7 +11,7 @@ const Boards: React.FC = () => {
   const [projects, setProjects] = useState(
     availableProjects.find((x) => x.id === +id!)
   );
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   // const [currentBoard, setCurrentBoard] = useState<Board | null>(null);
   // const [currentItem, setCurrentItem] = useState<BoardItem | null>(null);
@@ -79,58 +79,78 @@ const Boards: React.FC = () => {
   // };
 
   return (
-    <div className="boardWrapper">
-      {showModal && <CreateTask />}
-      {boards.map((board: Board) => {
-        return (
-          <div
-            // onDragOver={(e) => {
-            //   dragOverHandler(e);
-            // }}
-            // onDrop={(e) => {
-            //   dropCardHandler(e, board);
-            // }}
-            key={board.id}
-            className="board"
-          >
-            <p className="board__title">{board.title}</p>
-            {projects
-              ?.items!.filter((x) => x.status === board.title)
-              .map((item: ProjectItem) => {
-                return (
-                  <div
-                    // onDragOver={(e) => {
-                    //   dragOverHandler(e);
-                    // }}
-                    // onDragLeave={(e) => {
-                    //   dragLeaveHandler(e);
-                    // }}
-                    // onDragStart={() => {
-                    //   dragStartHandler(board, item);
-                    // }}
-                    // onDragEnd={(e) => {
-                    //   dragEndHandler(e);
-                    // }}
-                    // onDrop={(e) => {
-                    //   dropHandler(e, board, item);
-                    // }}
-                    draggable
-                    key={item.id}
-                    className="board__item"
-                  >
-                    {item.title}
-                  </div>
-                );
-              })}
-            <CustomButton
-              styles={{ marginTop: 15 }}
-              onClick={() => {}}
-              title="Create"
-            />
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <p
+        style={{
+          fontSize: 18,
+          fontWeight: 500,
+          marginBottom: 30,
+          textAlign: "center",
+        }}
+      >
+        {projects?.title}
+      </p>
+      <div className="boardWrapper">
+        {showModal && (
+          <CreateTask
+            closeModal={() => {
+              setShowModal(false);
+            }}
+          />
+        )}
+        {boards.map((board: Board) => {
+          return (
+            <div
+              // onDragOver={(e) => {
+              //   dragOverHandler(e);
+              // }}
+              // onDrop={(e) => {
+              //   dropCardHandler(e, board);
+              // }}
+              key={board.id}
+              className="board"
+            >
+              <p className="board__title">{board.title}</p>
+              {projects
+                ?.items!.filter((x) => x.status === board.title)
+                .map((item: ProjectItem) => {
+                  return (
+                    <div
+                      // onDragOver={(e) => {
+                      //   dragOverHandler(e);
+                      // }}
+                      // onDragLeave={(e) => {
+                      //   dragLeaveHandler(e);
+                      // }}
+                      // onDragStart={() => {
+                      //   dragStartHandler(board, item);
+                      // }}
+                      // onDragEnd={(e) => {
+                      //   dragEndHandler(e);
+                      // }}
+                      // onDrop={(e) => {
+                      //   dropHandler(e, board, item);
+                      // }}
+                      draggable
+                      key={item.id}
+                      className="board__item"
+                    >
+                      {item.title}
+                    </div>
+                  );
+                })}
+              <CustomButton
+                style={{ marginTop: 15 }}
+                onClick={() => {
+                  setShowModal(true);
+                }}
+                title="Create"
+              />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

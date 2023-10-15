@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface ICustomInputProps {
   title: string;
@@ -7,14 +7,22 @@ interface ICustomInputProps {
 }
 
 const CustomInput: React.FC<ICustomInputProps> = (props) => {
+  const [error, setError] = useState(false);
+
   return (
     <>
       <label>{props.title}</label>
       <input
+        onInput={() => {
+          setError(false);
+        }}
+        onInvalid={() => {
+          setError(true);
+        }}
         onChange={props.onChange}
         value={props.value}
         required
-        className="customInput"
+        className={error ? "customInput customInputError" : "customInput"}
       />
     </>
   );

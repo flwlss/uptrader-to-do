@@ -16,6 +16,11 @@
   padding: 0 20px;
   margin-top: 5px;
   border: 1px solid #000;
+  margin-bottom: 10px;
+}
+
+.customInputError {
+  border: 1px solid red;
 }
 
 .customSelect {
@@ -23,4 +28,9 @@
   height: 50px;
   border-radius: 10px;
   padding: 0 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+  outline: none;
 }

@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import Modal from "./Modal";
 
-const CreateProject: React.FC = () => {
-  const [value, setValue] = useState("");
+interface ICreateProject {
+  closeModal: () => void;
+}
+
+const CreateProject: React.FC<ICreateProject> = ({ closeModal }) => {
+  const [newProject, setNewProject] = useState({
+    title: "",
+  });
 
   return (
     <Modal
+      closeModal={closeModal}
       onSubmit={() => {
-        console.log("create project");
+        console.log("my project", newProject);
       }}
     >
       <CustomInput
         onChange={(e) => {
-          setValue(e.target.value);
+          setNewProject({ title: e.target.value });
         }}
-        value={value}
+        value={newProject.title}
         title="Название проекта:"
       />
     </Modal>

@@ -3,13 +3,13 @@ import React, { CSSProperties } from "react";
 interface ICustomButtonProps {
   onClick?: () => void;
   title: string;
-  styles?: CSSProperties;
+  style?: CSSProperties;
 }
 
 const CustomButton: React.FC<ICustomButtonProps> = (props) => {
   return (
     <button
-      style={props.styles}
+      style={props.style}
       className="customButton"
       onClick={props.onClick}
     >
