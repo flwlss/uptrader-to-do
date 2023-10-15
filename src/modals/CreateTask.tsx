@@ -5,14 +5,15 @@ import Modal from "./Modal";
 
 interface ICreateTask {
   closeModal: () => void;
+  status?: string;
 }
 
-const CreateTask: React.FC<ICreateTask> = ({ closeModal }) => {
+const CreateTask: React.FC<ICreateTask> = ({ closeModal, status }) => {
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
     priority: "low",
-    status: "queue",
+    status: status,
   });
 
   return (
@@ -44,14 +45,6 @@ const CreateTask: React.FC<ICreateTask> = ({ closeModal }) => {
           }}
           title="Приоритет:"
           options={["low", "medium", "high"]}
-        />
-        <CustomSelect
-          value={newTask.status}
-          onChange={(e) => {
-            setNewTask({ ...newTask, status: e.target.value });
-          }}
-          title="Текущий статус:"
-          options={["queue", "development", "done"]}
         />
       </>
     </Modal>

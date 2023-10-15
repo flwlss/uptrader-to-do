@@ -13,7 +13,7 @@ const Boards: React.FC = () => {
   );
   const [showModal, setShowModal] = useState(false);
 
-  // const [currentBoard, setCurrentBoard] = useState<Board | null>(null);
+  const [currentBoard, setCurrentBoard] = useState<Board | null>(null);
   // const [currentItem, setCurrentItem] = useState<BoardItem | null>(null);
 
   // const dragOverHandler = (e: any) => {
@@ -93,6 +93,7 @@ const Boards: React.FC = () => {
       <div className="boardWrapper">
         {showModal && (
           <CreateTask
+            status={currentBoard?.title}
             closeModal={() => {
               setShowModal(false);
             }}
@@ -143,6 +144,7 @@ const Boards: React.FC = () => {
                 style={{ marginTop: 15 }}
                 onClick={() => {
                   setShowModal(true);
+                  setCurrentBoard(board);
                 }}
                 title="Create"
               />
