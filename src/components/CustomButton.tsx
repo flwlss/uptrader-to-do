@@ -1,7 +1,7 @@
 import React, { CSSProperties } from "react";
 
 interface ICustomButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   title: string;
   styles?: CSSProperties;
 }

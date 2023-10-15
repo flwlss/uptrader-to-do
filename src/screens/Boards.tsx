@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { availableBoards, availableProjects } from "../common/constants";
 import { useParams } from "react-router-dom";
+import CreateTask from "../modals/CreateTask";
 
 const Boards: React.FC = () => {
   const { id } = useParams();
@@ -10,6 +11,7 @@ const Boards: React.FC = () => {
   const [projects, setProjects] = useState(
     availableProjects.find((x) => x.id === +id!)
   );
+  const [showModal, setShowModal] = useState(true);
 
   // const [currentBoard, setCurrentBoard] = useState<Board | null>(null);
   // const [currentItem, setCurrentItem] = useState<BoardItem | null>(null);
@@ -78,6 +80,7 @@ const Boards: React.FC = () => {
 
   return (
     <div className="boardWrapper">
+      {showModal && <CreateTask />}
       {boards.map((board: Board) => {
         return (
           <div
